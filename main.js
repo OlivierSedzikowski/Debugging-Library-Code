@@ -94,7 +94,7 @@ function render() {
 
       let titleCell = document.createElement("td");
       titleCell.append(myLibrary[i].title);
-      row.append(titleCella);
+      row.append(titleCell); // we removed extra letter "a"
 
       let authorCell = document.createElement("td");
       authorCell.append(myLibrary[i].author);
@@ -130,7 +130,7 @@ function render() {
       deleteButton.setAttribute("data-book", bookNumber);
 
       deleteButton.append(icon);
-      deleteCell.append(addDeleteButtons);
+      deleteCell.append(deleteButton);
       row.append(deleteCell);
 
       tableBody.insertBefore(row, tableBody.firstChild);
@@ -151,7 +151,7 @@ submit.addEventListener("click", (e) => {
 
   for (let element of form.elements) {
     if (element.id === "read") {
-      element.checked ? bookArgs.push("No") : bookArgs.push("Yes");
+      element.checked ? bookArgs.push("Yes") : bookArgs.push("No");
       element.checked = false;
     } else {
       bookArgs.push(element.value);
