@@ -34,23 +34,28 @@
       <form>
         <div id="inputs-container">
           <div class="input">
+            <!-- title -->
             <label for="title">Title</label>
             <input type="text" id="title" class="text-input" name="title" />
           </div>
+          <!-- author -->
           <div class="input">
             <label for="author">Author</label>
             <input type="text" id="author" class="text-input" name="author" />
           </div>
+          <!-- pages -->
           <div id="input-group">
             <div class="small-input">
               <label for="pages">Pages</label>
               <input type="number" id="pages" name="pages" min="1" />
             </div>
+            <!-- read -->
             <div id="checkbox-container" class="small-input">
               <label for="read">Read</label>
               <input type="checkbox" id="read" name="read" />
             </div>
           </div>
+          <!-- submit -->
           <div id="submit-container">
             <input id="submit" type="submit" value="Submit" />
           </div>
@@ -59,6 +64,7 @@
     </div>
     <div id="main-container">
       <div id="table-container">
+        <!-- table -->
         <table>
           <thead>
             <tr>
@@ -72,11 +78,12 @@
         </table>
       </div>
       <div id="desktop-button-container">
+        <!-- button -->
         <button type="button" id="add-button-desktop" class="add-button">
           Add book
         </button>
       </div>
     </div>
-    <script src="mainscript.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

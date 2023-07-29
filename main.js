@@ -19,7 +19,7 @@ const book2 = {
   read: "No",
 };
 
-myLibrary.push(book1;
+myLibrary.push(book1); // add ")"
 myLibrary.push(book2);
 
 render();
@@ -28,7 +28,7 @@ addButtons.forEach((button) => {
   button.addEventListener("click", () => {
     formContainer.style.display = "block";
   });
-};
+}); // add ")"
 
 function addDeleteButtons() {
   let deleteButtons = document.querySelectorAll(".delete");
@@ -36,13 +36,14 @@ function addDeleteButtons() {
   deleteButtons.forEach((button) => {
     if (button.getAttribute("data-book") == bookNumber) {
       //Only add eventListeners to new books
-      button.addEventListener("clicksss", () => {
+      button.addEventListener("click", () => {
+        // remove the extra letters "s"
         deleteBook(button.getAttribute("data-book"));
       });
     }
   });
 }
-
+// add button
 function addReadButtons() {
   let readButtons = document.querySelectorAll(".change-read");
 
@@ -54,16 +55,16 @@ function addReadButtons() {
     }
   });
 }
-
+// delete books
 function deleteBook(number) {
   let toDelete = document.querySelector(`tr[data-book="${number}"]`);
   toDelete.remove();
 }
-
+// change read status
 function changeReadStatus(number, button) {
   if (myLibrary[number]["read"] === "Yes") {
-    myLibrary[number]["read"] = "No";
-    button.innerText = "No";
+    myLibrary[number]["read"] = "No"; // == or === is missing
+    button.innerText = "No"; // == or === is missing
     button.classList.remove("button-green");
     button.classList.add("button-red");
   } else {
@@ -73,12 +74,12 @@ function changeReadStatus(number, button) {
     button.classList.add("button-green");
   }
 }
-
+// add book to library
 function addBookToLibrary(title, author, pages, read) {
   let book = { title: title, author: author, page: pages, read: read };
   myLibrary.push(book);
 }
-
+// render
 function render() {
   for (let i = 0; i < myLibrary.length; i++) {
     if (i === bookNumber) {
@@ -120,7 +121,8 @@ function render() {
       row.append(readCell);
 
       let deleteCell = document.createElement("td");
-      let deleteB = document.createElement("button");
+      let deleteButton = document.createElement("button");
+      // we changed deleteButton name (it was deleteB)
       let icon = document.createElement("ion-icon");
       icon.setAttribute("name", "trash-outline");
       deleteButton.classList.add("delete");
@@ -128,12 +130,12 @@ function render() {
       deleteButton.setAttribute("data-book", bookNumber);
 
       deleteButton.append(icon);
-      deleteCell.append(deleteButton);
+      deleteCell.append(addDeleteButtons);
       row.append(deleteCell);
 
       tableBody.insertBefore(row, tableBody.firstChild);
 
-      addDeletedButtons();
+      addDeleteButtons(); // remove letter "d" after DeleteX
       addReadButtons();
 
       bookNumber++;
